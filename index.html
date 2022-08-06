@@ -3,9 +3,103 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<link rel="stylesheet" href="style.css">
+	<script defer src="db.js"></script>
+	<script defer src="main.js"></script>
+	<script src="https://kit.fontawesome.com/de36200da7.js" crossorigin="anonymous"></script>
+	<title>Force</title>
 </head>
 <body>
-	
+	<header>
+		force
+		<div id="autoDateTime">
+
+		</div>
+		<div id="calendar">
+			<button>
+				<i class="fa-regular fa-calendar"></i>
+			</button>
+		</div>
+	</header>
+	<main>
+		<section id="page1">
+			<div id="itemArea">
+
+				<div id="etcArea">
+					<div class="etcItem">
+						<span>기타</span>
+						<button class="startBtn">
+							<i class="fa-solid fa-circle-play"></i>
+							<span class="etcTime">etcTime</span>
+						</button>
+					</div>
+
+					<div class="elseItem">
+						<button class="deleteTodoBtn">
+							<i class="fa-solid fa-ban"></i>
+						</button>
+						<input type="text" class="elseInput">
+						<button class="startBtn">
+							<i class="fa-solid fa-circle-play"></i>
+							<span class="elsetime">elseTime</span>
+						</button>
+						<button class="checkBtn">
+							<i class="fa-solid fa-circle-check"></i>
+						</button>
+					</div>
+
+					<div id="addElse">
+						<button id="addElseBtn">
+							<i class="fa-solid fa-circle-plus"></i>
+							add something
+						</button>
+					</div>
+				</div>
+				<div id="line">
+				</div>
+
+				<div id="todoArea">
+
+					<div class="todoItem">
+						<button class="deleteTodoBtn">
+							<i class="fa-solid fa-ban"></i>
+						</button>
+						<input type="text" class="todoInput">
+						<button class="startBtn">
+							<i class="fa-solid fa-circle-play"></i>
+							<span class="todoTime">todoTime</span>
+						</button>
+						<button class="checkBtn">
+							<i class="fa-solid fa-circle-check"></i>
+						</button>
+					</div>
+
+					<div id="addTodo">
+						<button id="addTodoBtn">
+							<i class="fa-solid fa-circle-plus"></i>
+							add todo
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<div id="arrowArea">
+				<button id="leftArrowBtn">
+					<i class="fa-solid fa-circle-chevron-left"></i>
+				</button>
+				<i class="fa-solid fa-circle"></i>
+				<i class="fa-solid fa-circle-dot"></i>
+				<button id="rightArrowBtn">
+					<i class="fa-solid fa-circle-chevron-right"></i>
+				</button>
+			</div>
+		</section>
+		<section id="page2">
+			<div id="dayList">
+				page2
+			</div>
+		</section>
+	</main>
+	<footer>made By BARO</footer>
 </body>
 </html>
