@@ -17,9 +17,23 @@ button {
 	cursor: pointer;
 }
 
+button i {
+	pointer-events: none;
+}
+
+button span {
+	pointer-events: none;
+}
+
 #itemArea {
 	display: flex;
 	align-items: center;
+	height: 80vh;
+	width: 100vh;
+}
+
+.elseItemInput {
+	margin: 15px;
 }
 
 .elseItem {
@@ -32,9 +46,21 @@ button {
 	height: 50px;
 }
 
+.todoItemInput {
+	margin: 15px;
+}
+
 .todoItem {
 	margin: 15px;
 }
 
 
+#arrowArea {
+	font-size: 30px;
+	display: flex;
+	justify-content: center;
+}
 
+#arrowArea button {
+	font-size: 40px;
+}

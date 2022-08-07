@@ -4,8 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="style.css">
-	<script defer src="db.js"></script>
-	<script defer src="main.js"></script>
+	<script type="module" src="main.js"></script>
 	<script src="https://kit.fontawesome.com/de36200da7.js" crossorigin="anonymous"></script>
 	<title>Force</title>
 </head>
@@ -34,18 +33,8 @@
 						</button>
 					</div>
 
-					<div class="elseItem">
-						<button class="deleteTodoBtn">
-							<i class="fa-solid fa-ban"></i>
-						</button>
-						<input type="text" class="elseInput">
-						<button class="startBtn">
-							<i class="fa-solid fa-circle-play"></i>
-							<span class="elsetime">elseTime</span>
-						</button>
-						<button class="checkBtn">
-							<i class="fa-solid fa-circle-check"></i>
-						</button>
+					<div id="elseList">
+
 					</div>
 
 					<div id="addElse">
@@ -55,23 +44,14 @@
 						</button>
 					</div>
 				</div>
+
 				<div id="line">
 				</div>
 
 				<div id="todoArea">
 
-					<div class="todoItem">
-						<button class="deleteTodoBtn">
-							<i class="fa-solid fa-ban"></i>
-						</button>
-						<input type="text" class="todoInput">
-						<button class="startBtn">
-							<i class="fa-solid fa-circle-play"></i>
-							<span class="todoTime">todoTime</span>
-						</button>
-						<button class="checkBtn">
-							<i class="fa-solid fa-circle-check"></i>
-						</button>
+					<div id="todoList">
+
 					</div>
 
 					<div id="addTodo">

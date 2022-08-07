@@ -69,33 +69,24 @@ export let createTodo = () => {
 		let objStore = transaction.objectStore('todayStore');
 
 		let todoNameIndex = objStore.index('todoName');
-		let todoNameReq = todoNameIndex.openCursor();
+		let getTodoItem =- todoNameIndex.getAll();
 
-		todoNameReq.onsuccess = (e) => {
+		getTodoItem.onsuccess = (e) => {
 			let cursor = e.target.result;
 
 			if(cursor){
-				let value = todoNameIndex.get(cursor.key);
+				let value = objStore.get(cursor.key);
 
-				value.onsuccess = (event) => {
+				value.onsuccess = (e) => {
+					console.log(e.target.result);
+					/*
 					return(todoList.innerHTML += `
-						<div class="todoItem" id=${value.result.id}>
-							<button class="deleteBtn">
-								<i class="fa-solid fa-ban"></i>
-							</button>
-							<span>${value.result.todoName}</span>
-							<button class="startBtn">
-								<i class="fa-solid fa-circle-play"></i>
-								<span class="todoTime">todoTime</span>
-							</button>
-							<button class="checkBtn">
-								<i class="fa-solid fa-circle-notch"></i>
-							</button>
-						</div>
+						<div>${value.result.todoName}</div>
 						`)
+					*/
 				}
-				cursor.continue();
 			}
+			cursor.continue();
 		}
 	}
 }
@@ -134,7 +125,7 @@ export let acceptElse = (e) => {
 			elseName: e.target.value
 		})
 	}
-	createElse();
+	//createElse();
 }
 
 export let createElse = () => {
@@ -144,37 +135,27 @@ export let createElse = () => {
 	
 	request.onsuccess = (e) => {
 		let db = request.result;
-		let transaction = db.transaction(['todayStore'], 'readonly');
+		let transaction = db.transaction(['todoStore'], 'readonly');
 		transaction.onerror = (e) => console.log('error');
 		transaction.oncomplete = (e) => console.log('success');
 
 		let objStore = transaction.objectStore('todayStore');
-		let elseNameIndex = objStore.index('elseName');
+		let cursorReq =- objStore.openCursor();
 
-		let elseNameReq = elseNameIndex.openCursor();
-
-		elseNameReq.onsuccess = (e) => {
+		cursorReq.onsuccess = (e) => {
 			let cursor = e.target.result;
 
 			if(cursor){
-				let value = elseNameIndex.get(cursor.key);
+				let value = objStore.get(cursor.key);
 
-				value.onsuccess = (event) => {
-					return(elseList.innerHTML += `
-						<div class="elseItem" id=${value.result.id}>
-							<button class="deleteBtn">
-								<i class="fa-solid fa-ban"></i>
-							</button>
-							<span>${value.result.elseName}</span>
-							<button class="startBtn">
-								<i class="fa-solid fa-circle-play"></i>
-								<span class="elseTime">elseTime</span>
-							</button>
-						</div>
-						`);
-				};
-				cursor.continue();
+				value.onsuccess = (e) => {
+					console.log(e.target.result);
+					//return(elseList.innerHTML += `
+						//<div>${value.result.elseName}</div>
+						//`)
+				}
 			}
+			cursor.continue();
 		}
 	}
 
@@ -212,24 +193,7 @@ export let acceptEtcTime = () => {
 			elseTime: elseTime.value
 		})
 	}
-}
 
-export let deleteItem = () => {
-
-	let request = window.indexedDB.open('force', 1);
-	request.onerror = (e) => console.log('error')
-	request.onsuccess = (e) => {
-		let db = request.result;
-		let transaction = db.transaction(['todayStore'], 'readwrite');
-		transaction.onerror = (e) => console.log('error');
-		transaction.oncomplete = (e) => console.log('success');
-
-		let objStore = transaction.objectStore('todayStore');
-		let deleteReq = objectStore.delete();
-		deleteReq.onsuccess = (e) => {
-			console.log('delete Item');
-		}
-	}
 }
 
 export let makeTotalTime = () => {
