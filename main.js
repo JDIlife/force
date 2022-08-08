@@ -81,6 +81,7 @@ addTodoBtn.addEventListener('click', () => {
 itemArea.addEventListener('click', (e) => {
 	if(e.target.className === "deleteBtn"){
 		const deletedItem = e.target.parentElement;
+		dbfunc.deleteItem(e);
 		deletedItem.remove();
 	}
 })
@@ -108,6 +109,11 @@ todoList.addEventListener('click', (e) => {
 // init db
 
 dbfunc.dbinit();
+
+
+// show todo and else items when refresh the page
+dbfunc.createTodo();
+dbfunc.createElse();
 
 // make item with enter and delete itemInput
 

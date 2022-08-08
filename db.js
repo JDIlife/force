@@ -214,7 +214,7 @@ export let acceptEtcTime = () => {
 	}
 }
 
-export let deleteItem = () => {
+export let deleteItem = (event) => {
 
 	let request = window.indexedDB.open('force', 1);
 	request.onerror = (e) => console.log('error')
@@ -225,7 +225,7 @@ export let deleteItem = () => {
 		transaction.oncomplete = (e) => console.log('success');
 
 		let objStore = transaction.objectStore('todayStore');
-		let deleteReq = objectStore.delete();
+		let deleteReq = objStore.delete(Number(event.target.parentElement.id));
 		deleteReq.onsuccess = (e) => {
 			console.log('delete Item');
 		}
