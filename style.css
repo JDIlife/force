@@ -25,6 +25,10 @@ button span {
 	pointer-events: none;
 }
 
+.btnBgColor {
+	background-color: #9da9bd;
+}
+
 #itemArea {
 	display: flex;
 	align-items: center;

@@ -52,7 +52,7 @@ export let acceptTodo = (e) => {
 			todoName: e.target.value
 		})
 	}
-	createTodo();
+	//createTodo();
 }
 
 export let createTodo = () => {
@@ -71,6 +71,8 @@ export let createTodo = () => {
 		let todoNameIndex = objStore.index('todoName');
 		let todoNameReq = todoNameIndex.openCursor();
 
+		todoList.innerHTML = "";
+
 		todoNameReq.onsuccess = (e) => {
 			let cursor = e.target.result;
 
@@ -86,7 +88,7 @@ export let createTodo = () => {
 							<span>${value.result.todoName}</span>
 							<button class="startBtn">
 								<i class="fa-solid fa-circle-play"></i>
-								<span class="todoTime">todoTime</span>
+								<span class="todoTime">00:00:00</span>
 							</button>
 							<button class="checkBtn">
 								<i class="fa-solid fa-circle-notch"></i>
@@ -134,7 +136,7 @@ export let acceptElse = (e) => {
 			elseName: e.target.value
 		})
 	}
-	createElse();
+	//createElse();
 }
 
 export let createElse = () => {
@@ -153,6 +155,8 @@ export let createElse = () => {
 
 		let elseNameReq = elseNameIndex.openCursor();
 
+		elseList.innerHTML = "";
+
 		elseNameReq.onsuccess = (e) => {
 			let cursor = e.target.result;
 
@@ -168,7 +172,7 @@ export let createElse = () => {
 							<span>${value.result.elseName}</span>
 							<button class="startBtn">
 								<i class="fa-solid fa-circle-play"></i>
-								<span class="elseTime">elseTime</span>
+								<span class="elseTime">00:00:00</span>
 							</button>
 						</div>
 						`);
@@ -177,8 +181,8 @@ export let createElse = () => {
 			}
 		}
 	}
-
 }
+
 
 export let acceptElseTime = () => {
 	let request = window.indexedDB.open('force', 1);
